@@ -1,0 +1,81 @@
+// Barkha Kumari
+// 24070123029
+// EnTC A1
+
+#include <iostream>
+using namespace std;
+
+class Stack {
+private:
+    static const int MAX = 10;   // maximum size of stack
+    int stack[MAX];              // array to hold stack elements
+    int top;                     // index of top element
+
+public:
+    // Constructor
+    Stack() {
+        top = -1;   // stack initially empty
+        for (int i = 0; i < MAX; i++) {
+            stack[i] = 0;
+        }
+    }
+
+    // Push operation
+    void push(int value) {
+        if (top < MAX - 1) {
+            top += 1;
+            stack[top] = value;
+            display();
+        } else {
+            cout << "Stack Overflow!" << endl;
+        }
+    }
+
+    // Pop operation
+    void pop() {
+        if (top >= 0) {
+            int poppedValue = stack[top];
+            stack[top] = 0;
+            top -= 1;
+            display();
+        } else {
+            cout << "Stack Underflow!" << endl;
+        }
+    }
+
+    // Display contents of stack
+    void display() {
+        cout << "Stack contents: ";
+        for (int i = 0; i <= top; i++) {
+            cout << stack[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Stack s;
+    s.push(10);   // push 10
+    s.push(20);   // push 20
+    s.push(30);   // push 30
+    s.pop();      // pop -> removes 30
+    s.push(40);   // push 40
+    s.pop();      // pop -> removes 40
+    s.pop();      // pop -> removes 20
+    s.pop();      // pop -> removes 10
+    s.pop();      // pop -> stack empty, underflow
+    return 0;
+}
+
+/*
+Expected Output:
+Stack contents: 10
+Stack contents: 10 20
+Stack contents: 10 20 30
+Stack contents: 10 20
+Stack contents: 10 20 40
+Stack contents: 10 20
+Stack contents: 10
+Stack contents:
+Stack Underflow!
+*/
