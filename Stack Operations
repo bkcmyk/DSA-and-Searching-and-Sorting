@@ -1,0 +1,42 @@
+// Barkha Kumari
+// 24070123029
+// EnTC A1
+
+#include<iostream>
+#include<stack>
+
+int main(){
+    std::stack<int> myStack;
+
+    // Push elements onto stack
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+    myStack.push(40);
+    myStack.push(50);
+
+    // Display top element
+    std::cout<<"Top Element "<<myStack.top()<<"\n";
+
+    // Display stack size
+    std::cout<<"Element Size "<<myStack.size()<<"\n";
+
+    // Check if stack is empty
+    std::cout<<"Empty Stack "<<myStack.empty()<<"\n";
+
+    // Remove the top element
+    myStack.pop();
+
+    // Display new top element
+    std::cout<<"Top Element "<<myStack.top()<<"\n";
+
+    return 0;
+}
+
+/* 
+Output:
+Top Element 50
+Element Size 5
+Empty Stack 0
+Top Element 40
+*/
